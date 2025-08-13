@@ -19,6 +19,13 @@ A luxurious, modern, and professional personal portfolio website built with Reac
    ```
 
 3. **Run the development server**
+   
+   **For Windows:**
+   ```bash
+   node dev-server.js
+   ```
+   
+   **For Mac/Linux:**
    ```bash
    npm run dev
    ```
