@@ -1,0 +1,821 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yuvraj Adinath Sanap - Frontend Developer | Portfolio</title>
+    <meta name="description" content="Professional portfolio of Yuvraj Adinath Sanap - Frontend Developer & Cloud Enthusiast. B.E. Computer Science student with expertise in modern web technologies.">
+    <meta name="keywords" content="Frontend Developer, React, JavaScript, Azure, Portfolio, Web Developer, Yuvraj Sanap">
+    <meta name="author" content="Yuvraj Adinath Sanap">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            900: '#0A1628',
+                            800: '#1A365D',
+                            700: '#2D3748',
+                        },
+                        gold: {
+                            500: '#D4AF37',
+                            400: '#F6E05E',
+                            300: '#FBD38D',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out',
+                        'fade-in-down': 'fadeInDown 0.8s ease-out',
+                        'slide-in-left': 'slideInLeft 0.8s ease-out',
+                        'slide-in-right': 'slideInRight 0.8s ease-out',
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                    }
+                }
+            }
+        };
+    </script>
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes glow {
+            from { box-shadow: 0 0 20px rgba(212, 175, 55, 0.3); }
+            to { box-shadow: 0 0 40px rgba(212, 175, 55, 0.6); }
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #D4AF37 0%, #F6E05E 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, #0A1628 0%, #1A365D 50%, #2D3748 100%);
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .section-fade {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .section-fade.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .skill-item {
+            transition: all 0.3s ease;
+        }
+        
+        .skill-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
+        }
+        
+        .project-card {
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px rgba(10, 22, 40, 0.3);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #D4AF37, #F6E05E);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            transition: all 0.3s ease;
+        }
+        
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #D4AF37;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- @COMPONENT: Navigation [Fixed navigation with smooth scroll] -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass-effect">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="font-serif font-bold text-xl gradient-text">
+                    YS
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-navy-800 hover:text-gold-500 font-medium">Home</a>
+                    <a href="#about" class="nav-link text-navy-800 hover:text-gold-500 font-medium">About</a>
+                    <a href="#skills" class="nav-link text-navy-800 hover:text-gold-500 font-medium">Skills</a>
+                    <a href="#projects" class="nav-link text-navy-800 hover:text-gold-500 font-medium">Projects</a>
+                    <a href="#contact" class="nav-link text-navy-800 hover:text-gold-500 font-medium">Contact</a>
+                </div>
+                <button class="md:hidden text-navy-800" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white/95 backdrop-blur-lg border-t border-gray-200" id="mobile-menu">
+            <div class="px-6 py-4 space-y-4">
+                <a href="#home" class="block text-navy-800 hover:text-gold-500 font-medium">Home</a>
+                <a href="#about" class="block text-navy-800 hover:text-gold-500 font-medium">About</a>
+                <a href="#skills" class="block text-navy-800 hover:text-gold-500 font-medium">Skills</a>
+                <a href="#projects" class="block text-navy-800 hover:text-gold-500 font-medium">Projects</a>
+                <a href="#contact" class="block text-navy-800 hover:text-gold-500 font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <!-- @END_COMPONENT: Navigation -->
+
+    <!-- @COMPONENT: Hero [Full-screen hero with animated background] -->
+    <section id="home" class="min-h-screen hero-bg flex items-center justify-center relative overflow-hidden">
+        <!-- Animated background particles -->
+        <div class="absolute inset-0">
+            <div class="animate-float absolute top-20 left-10 w-4 h-4 bg-gold-400 rounded-full opacity-60"></div>
+            <div class="animate-float absolute top-40 right-20 w-6 h-6 bg-gold-500 rounded-full opacity-40" style="animation-delay: -2s;"></div>
+            <div class="animate-float absolute bottom-40 left-20 w-5 h-5 bg-gold-400 rounded-full opacity-50" style="animation-delay: -4s;"></div>
+            <div class="animate-float absolute bottom-20 right-10 w-3 h-3 bg-gold-500 rounded-full opacity-70" style="animation-delay: -6s;"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="animate-fade-in-down">
+                <h1 class="font-serif text-5xl md:text-7xl font-bold text-white mb-6">
+                    Yuvraj Adinath <span class="gradient-text">Sanap</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                    Frontend Developer | Cloud Enthusiast
+                </p>
+                <p class="text-lg text-gray-400 mb-12 max-w-2xl mx-auto">
+                    Crafting elegant web experiences with modern technologies and cloud-first thinking
+                </p>
+            </div>
+            
+            <div class="animate-fade-in-up space-x-6">
+                <button data-event="click:scrollToSection" data-implementation="Should smooth scroll to portfolio section" class="bg-gold-500 hover:bg-gold-400 text-navy-900 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:shadow-xl hover:scale-105 animate-glow">
+                    View Portfolio
+                </button>
+                <button data-event="click:scrollToContact" data-implementation="Should smooth scroll to contact section" class="border-2 border-gold-500 text-gold-500 hover:bg-gold-500 hover:text-navy-900 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:shadow-xl hover:scale-105">
+                    Contact Me
+                </button>
+            </div>
+            
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <i class="fas fa-chevron-down text-gold-500 text-2xl"></i>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Hero -->
+
+    <!-- @COMPONENT: About [About section with professional bio] -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center section-fade">
+                <h2 class="font-serif text-4xl md:text-5xl font-bold text-navy-900 mb-6">
+                    About <span class="gradient-text">Me</span>
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-gold-500 to-gold-400 mx-auto mb-12"></div>
+                
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="animate-slide-in-left">
+                        <!-- Professional developer portrait placeholder -->
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&h=600" alt="Professional developer portrait" class="rounded-2xl shadow-2xl w-full max-w-md mx-auto" data-mock-image="true" data-implementation="Replace with actual professional headshot">
+                    </div>
+                    
+                    <div class="animate-slide-in-right text-left">
+                        <h3 class="font-serif text-2xl font-semibold text-navy-800 mb-6">
+                            Building the Future, One Line at a Time
+                        </h3>
+                        <p class="text-gray-700 text-lg leading-relaxed mb-6" data-bind="user.bio">
+                            Final-year Computer Engineering student specializing in Frontend Development, proficient in HTML, CSS, JavaScript, Bootstrap, Azure Fundamentals certified, and experienced with building responsive, user-friendly web interfaces. Strong problem-solving skills, eager to contribute to innovative frontend projects.
+                        </p>
+                        
+                        <div class="grid grid-cols-2 gap-4 mb-6">
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <div class="text-gold-500 font-bold text-2xl" data-bind="user.stats.experience">3+</div>
+                                <div class="text-gray-600 text-sm">Years Learning</div>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <div class="text-gold-500 font-bold text-2xl" data-bind="user.stats.projects">10+</div>
+                                <div class="text-gray-600 text-sm">Projects Built</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex space-x-4">
+                            <a href="https://www.linkedin.com/in/yuvrajs779/" target="_blank" class="text-gold-500 hover:text-gold-400 text-2xl transition-colors">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://github.com/YuvrajS99" target="_blank" class="text-gold-500 hover:text-gold-400 text-2xl transition-colors">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="mailto:yuvrajsanap.sit.comp@gmail.com" class="text-gold-500 hover:text-gold-400 text-2xl transition-colors">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: About -->
+
+    <!-- @COMPONENT: Education [Education timeline with animations] -->
+    <section id="education" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto section-fade">
+                <h2 class="font-serif text-4xl md:text-5xl font-bold text-navy-900 text-center mb-6">
+                    Educational <span class="gradient-text">Journey</span>
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-gold-500 to-gold-400 mx-auto mb-16"></div>
+                
+                <div class="relative">
+                    <!-- Timeline line -->
+                    <div class="absolute left-8 md:left-1/2 transform md:-translate-x-px h-full w-0.5 bg-gradient-to-b from-gold-500 to-gold-400"></div>
+                    
+                    <!-- @MAP: educationItems.map(item => ( -->
+                    <div class="relative flex items-center mb-12 animate-slide-in-left">
+                        <div class="absolute left-8 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gold-500 rounded-full border-4 border-white shadow-lg"></div>
+                        <div class="ml-20 md:ml-0 md:w-1/2 md:pr-8">
+                            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+                                <div class="text-gold-500 font-semibold text-sm mb-2" data-bind="education.period">2022 – 2026</div>
+                                <h3 class="font-serif text-xl font-semibold text-navy-800 mb-2" data-bind="education.degree">B.E. Computer Science & Engineering</h3>
+                                <p class="text-navy-700 mb-2" data-bind="education.institution">Sinhgad Institute of Technology</p>
+                                <div class="text-gold-500 font-semibold" data-bind="education.grade">CGPA: 8.01/10</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="relative flex items-center mb-12 animate-slide-in-right md:justify-end">
+                        <div class="absolute left-8 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gold-500 rounded-full border-4 border-white shadow-lg"></div>
+                        <div class="ml-20 md:ml-0 md:w-1/2 md:pl-8">
+                            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+                                <div class="text-gold-500 font-semibold text-sm mb-2" data-bind="education.period">2022</div>
+                                <h3 class="font-serif text-xl font-semibold text-navy-800 mb-2" data-bind="education.degree">12th MSBSHSE</h3>
+                                <p class="text-navy-700 mb-2" data-bind="education.institution">Sant Bhagwan Baba Junior College Pathardi</p>
+                                <div class="text-gold-500 font-semibold" data-bind="education.grade">69.67%</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="relative flex items-center animate-slide-in-left">
+                        <div class="absolute left-8 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gold-500 rounded-full border-4 border-white shadow-lg"></div>
+                        <div class="ml-20 md:ml-0 md:w-1/2 md:pr-8">
+                            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+                                <div class="text-gold-500 font-semibold text-sm mb-2" data-bind="education.period">2020</div>
+                                <h3 class="font-serif text-xl font-semibold text-navy-800 mb-2" data-bind="education.degree">10th MSBSHSE</h3>
+                                <p class="text-navy-700 mb-2" data-bind="education.institution">Ideal English Medium School, Shirur Kasar</p>
+                                <div class="text-gold-500 font-semibold" data-bind="education.grade">91.60%</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- @END_MAP )) -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Education -->
+
+    <!-- @COMPONENT: Skills [Skills grid with icons and hover animations] -->
+    <section id="skills" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto section-fade">
+                <h2 class="font-serif text-4xl md:text-5xl font-bold text-navy-900 text-center mb-6">
+                    Technical <span class="gradient-text">Skills</span>
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-gold-500 to-gold-400 mx-auto mb-16"></div>
+                
+                <!-- @MAP: skillCategories.map(category => ( -->
+                <div class="mb-12">
+                    <h3 class="font-serif text-2xl font-semibold text-navy-800 text-center mb-8" data-bind="category.name">Frontend Technologies</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 mb-8">
+                        <div class="skill-item bg-gray-50 p-6 rounded-xl text-center group cursor-pointer">
+                            <i class="fab fa-html5 text-4xl text-orange-500 mb-4 group-hover:scale-110 transition-transform"></i>
+                            <h4 class="font-semibold text-navy-800 text-sm" data-bind="skill.name">HTML5</h4>
+                        </div>
+                        
+                        <div class="skill-item bg-gray-50 p-6 rounded-xl text-center group cursor-pointer">
+                            <i class="fab fa-css3-alt text-4xl text-blue-500 mb-4 group-hover:scale-110 transition-transform"></i>
+                            <h4 class="font-semibold text-navy-800 text-sm" data-bind="skill.name">CSS3</h4>
+                        </div>
+                        
+                        <div class="skill-item bg-gray-50 p-6 rounded-xl text-center group cursor-pointer">
+                            <i class="fab fa-js-square text-4xl text-yellow-500 mb-4 group-hover:scale-110 transition-transform"></i>
+                            <h4 class="font-semibold text-navy-800 text-sm" data-bind="skill.name">JavaScript</h4>
+                        </div>
+                        
+                        <div class="skill-item bg-gray-50 p-6 rounded-xl text-center group cursor-pointer">
+                            <i class="fab fa-bootstrap text-4xl text-purple-500 mb-4 group-hover:scale-110 transition-transform"></i>
+                            <h4 class="font-semibold text-navy-800 text-sm" data-bind="skill.name">Bootstrap</h4>
+                        </div>
+                        
+                        <div class="skill-item bg-gray-50 p-6 rounded-xl text-center group cursor-pointer">
+                            <i class="fab fa-react text-4xl text-cyan-500 mb-4 group-hover:scale-110 transition-transform"></i>
+                            <h4 class="font-semibold text-navy-800 text-sm" data-bind="skill.name">React</h4>
+                        </div>
+                        
+                        <div class="skill-item bg-gray-50 p-6 rounded-xl text-center group cursor-pointer">
+                            <i class="fas fa-code text-4xl text-gray-600 mb-4 group-hover:scale-110 transition-transform"></i>
+                            <h4 class="font-semibold text-navy-800 text-sm" data-bind="skill.name">VS Code</h4>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-12">
+                    <h3 class="font-serif text-2xl font-semibold text-navy-800 text-center mb-8" data-bind="category.name">Cloud & Backend</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 mb-8">
+                        <div class="skill-item bg-gray-50 p-6 rounded-xl text-center group cursor-pointer">
+                            <i class="fab fa-aws text-4xl text-orange-400 mb-4 group-hover:scale-110 transition-transform"></i>
+                            <h4 class="font-semibold text-navy-800 text-sm" data-bind="skill.name">AWS</h4>
+                        </div>
+                        
+                        <div class="skill-item bg-gray-50 p-6 rounded-xl text-center group cursor-pointer">
+                            <i class="fab fa-microsoft text-4xl text-blue-600 mb-4 group-hover:scale-110 transition-transform"></i>
+                            <h4 class="font-semibold text-navy-800 text-sm" data-bind="skill.name">Azure</h4>
+                        </div>
+                        
+                        <div class="skill-item bg-gray-50 p-6 rounded-xl text-center group cursor-pointer">
+                            <i class="fab fa-google text-4xl text-red-500 mb-4 group-hover:scale-110 transition-transform"></i>
+                            <h4 class="font-semibold text-navy-800 text-sm" data-bind="skill.name">Google Cloud</h4>
+                        </div>
+                        
+                        <div class="skill-item bg-gray-50 p-6 rounded-xl text-center group cursor-pointer">
+                            <i class="fas fa-database text-4xl text-blue-700 mb-4 group-hover:scale-110 transition-transform"></i>
+                            <h4 class="font-semibold text-navy-800 text-sm" data-bind="skill.name">MySQL</h4>
+                        </div>
+                        
+                        <div class="skill-item bg-gray-50 p-6 rounded-xl text-center group cursor-pointer">
+                            <i class="fab fa-java text-4xl text-red-600 mb-4 group-hover:scale-110 transition-transform"></i>
+                            <h4 class="font-semibold text-navy-800 text-sm" data-bind="skill.name">Java</h4>
+                        </div>
+                        
+                        <div class="skill-item bg-gray-50 p-6 rounded-xl text-center group cursor-pointer">
+                            <i class="fas fa-tools text-4xl text-gray-600 mb-4 group-hover:scale-110 transition-transform"></i>
+                            <h4 class="font-semibold text-navy-800 text-sm" data-bind="skill.name">Postman</h4>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-serif text-2xl font-semibold text-navy-800 text-center mb-8" data-bind="category.name">Development Tools</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                        <div class="skill-item bg-gray-50 p-6 rounded-xl text-center group cursor-pointer">
+                            <i class="fab fa-git-alt text-4xl text-orange-600 mb-4 group-hover:scale-110 transition-transform"></i>
+                            <h4 class="font-semibold text-navy-800 text-sm" data-bind="skill.name">Git</h4>
+                        </div>
+                        
+                        <div class="skill-item bg-gray-50 p-6 rounded-xl text-center group cursor-pointer">
+                            <i class="fas fa-chart-bar text-4xl text-yellow-600 mb-4 group-hover:scale-110 transition-transform"></i>
+                            <h4 class="font-semibold text-navy-800 text-sm" data-bind="skill.name">PowerBI</h4>
+                        </div>
+                        
+                        <div class="skill-item bg-gray-50 p-6 rounded-xl text-center group cursor-pointer">
+                            <i class="fas fa-project-diagram text-4xl text-blue-600 mb-4 group-hover:scale-110 transition-transform"></i>
+                            <h4 class="font-semibold text-navy-800 text-sm" data-bind="skill.name">JIRA</h4>
+                        </div>
+                        
+                        <div class="skill-item bg-gray-50 p-6 rounded-xl text-center group cursor-pointer">
+                            <i class="fas fa-bug text-4xl text-green-600 mb-4 group-hover:scale-110 transition-transform"></i>
+                            <h4 class="font-semibold text-navy-800 text-sm" data-bind="skill.name">Debugging</h4>
+                        </div>
+                        
+                        <div class="skill-item bg-gray-50 p-6 rounded-xl text-center group cursor-pointer">
+                            <i class="fas fa-sitemap text-4xl text-purple-600 mb-4 group-hover:scale-110 transition-transform"></i>
+                            <h4 class="font-semibold text-navy-800 text-sm" data-bind="skill.name">DSA</h4>
+                        </div>
+                        
+                        <div class="skill-item bg-gray-50 p-6 rounded-xl text-center group cursor-pointer">
+                            <i class="fas fa-object-group text-4xl text-indigo-600 mb-4 group-hover:scale-110 transition-transform"></i>
+                            <h4 class="font-semibold text-navy-800 text-sm" data-bind="skill.name">OOP</h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- @END_MAP )) -->
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Skills -->
+
+    <!-- @COMPONENT: Projects [Project showcase cards with descriptions and links] -->
+    <section id="projects" class="py-20 bg-navy-900">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto section-fade">
+                <h2 class="font-serif text-4xl md:text-5xl font-bold text-white text-center mb-6">
+                    Featured <span class="gradient-text">Projects</span>
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-gold-500 to-gold-400 mx-auto mb-16"></div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- @MAP: projects.map(project => ( -->
+                    <div class="project-card bg-navy-800 rounded-2xl overflow-hidden shadow-2xl group" data-bind="project">
+                        <!-- Modern web development workspace with laptop and code -->
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" alt="Modern web development workspace" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+                        
+                        <div class="p-6">
+                            <h3 class="font-serif text-xl font-semibold text-white mb-3" data-bind="project.title">Personal Portfolio Website</h3>
+                            <p class="text-gray-300 mb-4 text-sm" data-bind="project.description">Showcase previous work with clean UI & mobile-friendly layout using modern web technologies.</p>
+                            
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-gold-500/20 text-gold-400 px-2 py-1 rounded-full text-xs" data-bind="project.tech">HTML</span>
+                                <span class="bg-gold-500/20 text-gold-400 px-2 py-1 rounded-full text-xs" data-bind="project.tech">CSS</span>
+                                <span class="bg-gold-500/20 text-gold-400 px-2 py-1 rounded-full text-xs" data-bind="project.tech">Bootstrap</span>
+                            </div>
+                            
+                            <div class="flex space-x-4">
+                                <button data-event="click:viewProject" data-implementation="Should open project in new tab" class="flex items-center text-gold-400 hover:text-gold-300 transition-colors">
+                                    <i class="fas fa-external-link-alt mr-2"></i>
+                                    <span class="text-sm">Live Demo</span>
+                                </button>
+                                <button data-event="click:viewCode" data-implementation="Should open GitHub repository" class="flex items-center text-gold-400 hover:text-gold-300 transition-colors">
+                                    <i class="fab fa-github mr-2"></i>
+                                    <span class="text-sm">Code</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card bg-navy-800 rounded-2xl overflow-hidden shadow-2xl group" data-bind="project">
+                        <!-- Clean todo app interface on laptop screen -->
+                        <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" alt="Clean todo app interface" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+                        
+                        <div class="p-6">
+                            <h3 class="font-serif text-xl font-semibold text-white mb-3" data-bind="project.title">To-Do Web App</h3>
+                            <p class="text-gray-300 mb-4 text-sm" data-bind="project.description">Interactive task management application with local storage functionality and intuitive user interface.</p>
+                            
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-gold-500/20 text-gold-400 px-2 py-1 rounded-full text-xs" data-bind="project.tech">JavaScript</span>
+                                <span class="bg-gold-500/20 text-gold-400 px-2 py-1 rounded-full text-xs" data-bind="project.tech">Local Storage</span>
+                                <span class="bg-gold-500/20 text-gold-400 px-2 py-1 rounded-full text-xs" data-bind="project.tech">CSS</span>
+                            </div>
+                            
+                            <div class="flex space-x-4">
+                                <a href="https://todoappyuva.netlify.app/" target="_blank" class="flex items-center text-gold-400 hover:text-gold-300 transition-colors">
+                                    <i class="fas fa-external-link-alt mr-2"></i>
+                                    <span class="text-sm">Live Demo</span>
+                                </a>
+                                <button data-event="click:viewCode" data-implementation="Should open GitHub repository" class="flex items-center text-gold-400 hover:text-gold-300 transition-colors">
+                                    <i class="fab fa-github mr-2"></i>
+                                    <span class="text-sm">Code</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card bg-navy-800 rounded-2xl overflow-hidden shadow-2xl group" data-bind="project">
+                        <!-- Database management system with SQL queries visualization -->
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" alt="Database management system" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+                        
+                        <div class="p-6">
+                            <h3 class="font-serif text-xl font-semibold text-white mb-3" data-bind="project.title">College Management System</h3>
+                            <p class="text-gray-300 mb-4 text-sm" data-bind="project.description">Comprehensive database solution with advanced SQL queries, joins, and subqueries for educational institution management.</p>
+                            
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-gold-500/20 text-gold-400 px-2 py-1 rounded-full text-xs" data-bind="project.tech">MySQL</span>
+                                <span class="bg-gold-500/20 text-gold-400 px-2 py-1 rounded-full text-xs" data-bind="project.tech">SQL</span>
+                                <span class="bg-gold-500/20 text-gold-400 px-2 py-1 rounded-full text-xs" data-bind="project.tech">Database</span>
+                            </div>
+                            
+                            <div class="flex space-x-4">
+                                <button data-event="click:viewProject" data-implementation="Should show project details or demo" class="flex items-center text-gold-400 hover:text-gold-300 transition-colors">
+                                    <i class="fas fa-database mr-2"></i>
+                                    <span class="text-sm">Details</span>
+                                </button>
+                                <button data-event="click:viewCode" data-implementation="Should open GitHub repository" class="flex items-center text-gold-400 hover:text-gold-300 transition-colors">
+                                    <i class="fab fa-github mr-2"></i>
+                                    <span class="text-sm">Code</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- @END_MAP )) -->
+                </div>
+                
+                <div class="text-center mt-12">
+                    <button data-event="click:viewAllProjects" data-implementation="Should navigate to full projects page" class="bg-gold-500 hover:bg-gold-400 text-navy-900 px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:shadow-xl hover:scale-105">
+                        View All Projects
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Projects -->
+
+    <!-- @COMPONENT: Certifications [Certifications section with verification links] -->
+    <section id="certifications" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto section-fade">
+                <h2 class="font-serif text-4xl md:text-5xl font-bold text-navy-900 text-center mb-6">
+                    Certifications & <span class="gradient-text">Assessments</span>
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-gold-500 to-gold-400 mx-auto mb-16"></div>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- @MAP: certifications.map(cert => ( -->
+                    <div class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200" data-bind="certification">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-gold-100 p-3 rounded-xl">
+                                <i class="fas fa-certificate text-2xl text-gold-600"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="font-serif text-xl font-semibold text-navy-800 mb-2" data-bind="cert.title">Microsoft Certified: Azure Fundamentals</h3>
+                                <p class="text-gray-600 mb-2" data-bind="cert.issuer">Microsoft Azure (AZ-900)</p>
+                                <p class="text-sm text-gray-500 mb-4" data-bind="cert.description">Cloud computing fundamentals and Azure services expertise</p>
+                                
+                                <a href="https://verify.certiport.com/wy2uL-48EN" target="_blank" class="inline-flex items-center text-gold-600 hover:text-gold-500 font-medium transition-colors">
+                                    <i class="fas fa-external-link-alt mr-2"></i>
+                                    Verify Certificate
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200" data-bind="certification">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-gold-100 p-3 rounded-xl">
+                                <i class="fab fa-java text-2xl text-gold-600"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="font-serif text-xl font-semibold text-navy-800 mb-2" data-bind="cert.title">Java Training Certificate</h3>
+                                <p class="text-gray-600 mb-2" data-bind="cert.issuer">IIT Bombay, Spoken Tutorial Project</p>
+                                <p class="text-sm text-gray-500 mb-4" data-bind="cert.description">Comprehensive Java programming and development training</p>
+                                
+                                <div class="flex items-center space-x-4">
+                                    <span class="text-gold-600 font-semibold" data-bind="cert.score">Score: 82.50/100</span>
+                                    <button data-event="click:viewCertificate" data-implementation="Should open certificate verification" class="text-gold-600 hover:text-gold-500 font-medium transition-colors">
+                                        <i class="fas fa-eye mr-2"></i>
+                                        View Certificate
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- @END_MAP )) -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Certifications -->
+
+    <!-- @COMPONENT: Contact [Contact form with validation and success animation] -->
+    <section id="contact" class="py-20 bg-navy-900">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto section-fade">
+                <h2 class="font-serif text-4xl md:text-5xl font-bold text-white text-center mb-6">
+                    Let's <span class="gradient-text">Connect</span>
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-gold-500 to-gold-400 mx-auto mb-16"></div>
+                
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="animate-slide-in-left">
+                        <h3 class="font-serif text-2xl font-semibold text-white mb-6">Get In Touch</h3>
+                        <p class="text-gray-300 mb-8 leading-relaxed">
+                            Ready to bring your ideas to life? Let's discuss how we can work together to create something amazing.
+                        </p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-center space-x-4" data-bind="contact.email">
+                                <div class="bg-gold-500 p-3 rounded-lg">
+                                    <i class="fas fa-envelope text-navy-900"></i>
+                                </div>
+                                <div>
+                                    <div class="text-gray-400 text-sm">Email</div>
+                                    <a href="mailto:yuvrajsanap.sit.comp@gmail.com" class="text-white hover:text-gold-400 transition-colors">yuvrajsanap.sit.comp@gmail.com</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-4" data-bind="contact.phone">
+                                <div class="bg-gold-500 p-3 rounded-lg">
+                                    <i class="fas fa-phone text-navy-900"></i>
+                                </div>
+                                <div>
+                                    <div class="text-gray-400 text-sm">Phone</div>
+                                    <a href="tel:+919373500779" class="text-white hover:text-gold-400 transition-colors">+91-9373500779</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-4" data-bind="contact.location">
+                                <div class="bg-gold-500 p-3 rounded-lg">
+                                    <i class="fas fa-map-marker-alt text-navy-900"></i>
+                                </div>
+                                <div>
+                                    <div class="text-gray-400 text-sm">Location</div>
+                                    <div class="text-white">Maharashtra, India</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex space-x-4 mt-8">
+                            <a href="https://www.linkedin.com/in/yuvrajs779/" target="_blank" class="bg-gold-500 hover:bg-gold-400 p-3 rounded-lg transition-colors">
+                                <i class="fab fa-linkedin text-navy-900"></i>
+                            </a>
+                            <a href="https://github.com/YuvrajS99" target="_blank" class="bg-gold-500 hover:bg-gold-400 p-3 rounded-lg transition-colors">
+                                <i class="fab fa-github text-navy-900"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="animate-slide-in-right">
+                        <form class="contact-form space-y-6" data-implementation="Should implement form validation and submission">
+                            <!-- @STATE: form:object = {name: '', email: '', message: '', isSubmitting: false, isSuccess: false} -->
+                            <div>
+                                <label for="name" class="block text-gray-300 font-medium mb-2">Name *</label>
+                                <input type="text" id="name" name="name" required data-bind="form.name" class="w-full px-4 py-3 bg-navy-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gold-500 transition-all" placeholder="Your Name">
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block text-gray-300 font-medium mb-2">Email *</label>
+                                <input type="email" id="email" name="email" required data-bind="form.email" class="w-full px-4 py-3 bg-navy-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gold-500 transition-all" placeholder="your.email@example.com">
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-gray-300 font-medium mb-2">Message *</label>
+                                <textarea id="message" name="message" rows="5" required data-bind="form.message" class="w-full px-4 py-3 bg-navy-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gold-500 transition-all resize-none" placeholder="Tell me about your project..."></textarea>
+                            </div>
+                            
+                            <button type="submit" data-event="click:submitForm" data-implementation="Should validate form and send message" class="w-full bg-gold-500 hover:bg-gold-400 text-navy-900 py-3 px-6 rounded-lg font-semibold transition-all duration-300 hover:shadow-xl hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gold-500">
+                                <span data-bind="form.isSubmitting ? 'Sending...' : 'Send Message'">Send Message</span>
+                            </button>
+                            
+                            <!-- Success message (hidden by default) -->
+                            <div class="hidden text-center p-4 bg-green-500/20 border border-green-500/30 rounded-lg" data-bind="form.isSuccess" data-implementation="Show when form is successfully submitted">
+                                <i class="fas fa-check-circle text-green-400 text-xl mb-2"></i>
+                                <p class="text-green-400 font-medium">Message sent successfully! I'll get back to you soon.</p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Contact -->
+
+    <!-- @COMPONENT: Footer [Simple footer with copyright] -->
+    <footer class="bg-navy-800 py-8">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="font-serif font-bold text-xl gradient-text mb-4 md:mb-0">
+                    Yuvraj Sanap
+                </div>
+                <div class="text-gray-400 text-center md:text-right">
+                    <p>&copy; 2024 Yuvraj Adinath Sanap. All rights reserved.</p>
+                    <p class="text-sm mt-1">Crafted with <i class="fas fa-heart text-gold-500"></i> and modern web technologies</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+
+    <script>
+        // TODO: Implement React Router for navigation
+        // TODO: Implement form validation and submission
+        // TODO: Implement smooth scroll functionality
+        // TODO: Implement intersection observer for animations
+        
+        (function() {
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuBtn?.addEventListener('click', function() {
+                mobileMenu?.classList.toggle('hidden');
+            });
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Intersection Observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('.section-fade').forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Active nav link highlighting
+            window.addEventListener('scroll', function() {
+                const sections = document.querySelectorAll('section[id]');
+                const navLinks = document.querySelectorAll('.nav-link');
+                
+                let currentSection = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 100;
+                    const sectionHeight = section.offsetHeight;
+                    if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${currentSection}`) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+            
+        })();
+    </script>
+</body>
+</html>
