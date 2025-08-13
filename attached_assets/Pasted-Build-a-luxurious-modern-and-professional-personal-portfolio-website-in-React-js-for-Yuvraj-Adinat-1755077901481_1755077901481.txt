@@ -1,0 +1,79 @@
+Build a luxurious, modern, and professional personal portfolio website in React.js for Yuvraj Adinath Sanap (B.E. – Computer Science & Engineering). The design must be premium, clean, and elegant, using a deep navy, royal gold, and clean white palette, with luxury-grade typography, smooth animations, and a polished UI. It should feel like a high-end developer portfolio for recruiters and hiring managers.
+
+Pages & Sections:
+
+Home / Landing Page
+
+Full-screen hero section with animated background
+
+Name: Yuvraj Adinath Sanap
+
+Tagline: “Frontend Developer | Cloud Enthusiast”
+
+CTA Buttons: “View Portfolio” & “Contact Me”
+
+Smooth scroll animation
+
+About Me
+
+Short bio: Final-year Computer Engineering student specializing in Frontend Development, proficient in HTML, CSS, JavaScript, Bootstrap, Azure Fundamentals certified, and experienced with building responsive, user-friendly web interfaces. Strong problem-solving skills, eager to contribute to innovative frontend projects.
+
+Education
+
+2022 – 2026: Sinhgad Institute of Technology – B.E. Computer Science & Engineering | CGPA: 8.01/10
+
+2022: Sant Bhagwan Baba Junior College Pathardi – 12th MSBSHSE | 69.67%
+
+2020: Ideal English Medium School, Shirur Kasar – 10th MSBSHSE | 91.60%
+
+Use timeline or card layout with subtle animations.
+
+Skills (Grid with icons + hover animations)
+
+HTML, CSS, JavaScript, Bootstrap, AWS Cloud, Azure Cloud, Google Cloud, MySQL, SQL, Java, PowerBI, Postman, Git Workflow, OOP, Debugging, Data Structures & Algorithms, VS Code, JIRA.
+
+Projects (Cards with images, descriptions, and links)
+
+Personal Portfolio Website (HTML, CSS, Bootstrap) – Showcase previous work with clean UI & mobile-friendly layout.
+
+To-Do Web App (JavaScript, Local Storage) – https://todoappyuva.netlify.app/
+
+College Management System (MySQL, SQL Queries, Joins & Subqueries).
+
+Certifications & Assessments
+
+Microsoft Certified: Azure Fundamentals (AZ-900) – Verification link: https://verify.certiport.com/wy2uL-48EN
+
+Java Training Certificate (IIT Bombay, Spoken Tutorial Project) – Score: 82.50/100.
+
+Contact Section
+
+Email: yuvrajsanap.sit.comp@gmail.com
+
+Phone: +91-9373500779
+
+LinkedIn: https://www.linkedin.com/in/yuvrajs779/
+
+GitHub: https://github.com/YuvrajS99
+
+Contact form with validation + success animation.
+
+Design & Technical Requirements:
+
+Use React Router for navigation.
+
+Responsive design (mobile-first).
+
+Tailwind CSS or styled-components for styling.
+
+Smooth scroll, fade-in animations, hover effects.
+
+Modular component structure with clean, reusable code.
+
+Include SEO-friendly meta tags.
+
+Premium font pairing (e.g., “Playfair Display” for headings, “Inter” for body).
+
+Gold accents for headings & highlights, deep navy backgrounds, white space for breathing room.
+
+The final site must look luxury-grade, recruiter-ready, and portfolio-worthy — polished like a professional frontend developer’s brand site.
