@@ -32,9 +32,9 @@ export default function About() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="animate-slide-in-left">
               <img 
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&h=600" 
-                alt="Professional developer portrait" 
-                className="rounded-2xl shadow-2xl w-full max-w-md mx-auto"
+                src="@assets/image_1755079377287.jpg" 
+                alt="Yuvraj Adinath Sanap - Professional Portrait" 
+                className="rounded-2xl shadow-2xl w-full max-w-md mx-auto object-cover aspect-[4/5]"
               />
             </div>
             

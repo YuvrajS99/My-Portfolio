@@ -217,7 +217,17 @@ export default function Contact() {
 }
 ```
 
-## Step 3: Run the server again
+## Step 3: Add Your Profile Photo
+
+1. Copy the file `attached_assets/image_1755079377287.jpg` to your local project folder in the same location
+2. Update the About component to use a direct path instead of the `@assets` alias
+
+Replace the image src in `client/src/components/about.tsx`:
+```tsx
+src="../../../attached_assets/image_1755079377287.jpg"
+```
+
+## Step 4: Run the server again
 
 After making these changes, run:
 
@@ -226,4 +236,4 @@ cd client
 npx vite
 ```
 
-Your portfolio should now work locally without any import errors!
+Your portfolio should now work locally with your professional photo and without any import errors!
