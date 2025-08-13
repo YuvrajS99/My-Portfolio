@@ -1,8 +1,6 @@
 import { Switch, Route } from "wouter";
-import { Toaster } from "@/components/ui/toaster";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import Home from "@/pages/home";
-import NotFound from "@/pages/not-found";
+import Home from "./pages/home";
+import NotFound from "./pages/not-found";
 
 function Router() {
   return (
@@ -15,10 +13,9 @@ function Router() {
 
 function App() {
   return (
-    <TooltipProvider>
-      <Toaster />
+    <div>
       <Router />
-    </TooltipProvider>
+    </div>
   );
 }
 

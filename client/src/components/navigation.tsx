@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useScroll } from "@/hooks/use-scroll";
+import { useScroll } from "../hooks/use-scroll";
 
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

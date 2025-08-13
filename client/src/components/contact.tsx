@@ -1,34 +1,11 @@
 import { useEffect, useRef, useState } from "react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
-import { Button } from "@/components/ui/button";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/hooks/use-toast";
-
-const contactFormSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Please enter a valid email address"),
-  message: z.string().min(10, "Message must be at least 10 characters"),
-});
-
-type ContactFormData = z.infer<typeof contactFormSchema>;
 
 export default function Contact() {
   const sectionRef = useRef<HTMLElement>(null);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
-  const { toast } = useToast();
-
-  const form = useForm<ContactFormData>({
-    resolver: zodResolver(contactFormSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      message: "",
-    },
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
   });
 
   useEffect(() => {
@@ -48,35 +25,23 @@ export default function Contact() {
     return () => observer.disconnect();
   }, []);
 
-  const onSubmit = async (data: ContactFormData) => {
-    setIsSubmitting(true);
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const subject = encodeURIComponent(`Portfolio Contact: Message from ${formData.name}`);
+    const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
+    const mailtoLink = `mailto:yuvrajsanap.sit.comp@gmail.com?subject=${subject}&body=${body}`;
+    window.open(mailtoLink, '_blank');
     
-    try {
-      // For static deployment, redirect to email client
-      const subject = encodeURIComponent(`Portfolio Contact: Message from ${data.name}`);
-      const body = encodeURIComponent(`Name: ${data.name}\nEmail: ${data.email}\n\nMessage:\n${data.message}`);
-      const mailtoLink = `mailto:yuvrajsanap.sit.comp@gmail.com?subject=${subject}&body=${body}`;
-      
-      window.open(mailtoLink, '_blank');
-      
-      setIsSuccess(true);
-      form.reset();
-      
-      toast({
-        title: "Opening email client...",
-        description: "Your message details have been prepared for sending.",
-      });
-      
-      setTimeout(() => setIsSuccess(false), 5000);
-    } catch (error) {
-      toast({
-        title: "Please contact directly",
-        description: "Send an email to yuvrajsanap.sit.comp@gmail.com",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+    // Reset form
+    setFormData({ name: "", email: "", message: "" });
+    alert("Opening email client with your message...");
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
   };
 
   return (
@@ -162,84 +127,57 @@ export default function Contact() {
             </div>
             
             <div className="animate-slide-in-right">
-              <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="contact-form space-y-6">
-                  <FormField
-                    control={form.control}
+              <form onSubmit={handleSubmit} className="contact-form space-y-6">
+                <div>
+                  <label className="text-gray-300 font-medium block mb-2">Name *</label>
+                  <input
+                    type="text"
                     name="name"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-gray-300 font-medium">Name *</FormLabel>
-                        <FormControl>
-                          <Input
-                            placeholder="Your Name"
-                            className="bg-navy-800 border-gray-600 text-white placeholder-gray-400 focus:ring-2 focus:ring-gold-500"
-                            data-testid="input-name"
-                            {...field}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
+                    placeholder="Your Name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="w-full bg-navy-800 border border-gray-600 text-white placeholder-gray-400 px-3 py-2 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-gold-500"
+                    data-testid="input-name"
                   />
-                  
-                  <FormField
-                    control={form.control}
+                </div>
+                
+                <div>
+                  <label className="text-gray-300 font-medium block mb-2">Email *</label>
+                  <input
+                    type="email"
                     name="email"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-gray-300 font-medium">Email *</FormLabel>
-                        <FormControl>
-                          <Input
-                            type="email"
-                            placeholder="your.email@example.com"
-                            className="bg-navy-800 border-gray-600 text-white placeholder-gray-400 focus:ring-2 focus:ring-gold-500"
-                            data-testid="input-email"
-                            {...field}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
+                    placeholder="your.email@example.com"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="w-full bg-navy-800 border border-gray-600 text-white placeholder-gray-400 px-3 py-2 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-gold-500"
+                    data-testid="input-email"
                   />
-                  
-                  <FormField
-                    control={form.control}
+                </div>
+                
+                <div>
+                  <label className="text-gray-300 font-medium block mb-2">Message *</label>
+                  <textarea
                     name="message"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-gray-300 font-medium">Message *</FormLabel>
-                        <FormControl>
-                          <Textarea
-                            placeholder="Tell me about your project..."
-                            rows={5}
-                            className="bg-navy-800 border-gray-600 text-white placeholder-gray-400 focus:ring-2 focus:ring-gold-500 resize-none"
-                            data-testid="input-message"
-                            {...field}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
+                    placeholder="Tell me about your project..."
+                    rows={5}
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                    className="w-full bg-navy-800 border border-gray-600 text-white placeholder-gray-400 px-3 py-2 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-gold-500 resize-none"
+                    data-testid="input-message"
                   />
-                  
-                  <Button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-gold-500 hover:bg-gold-400 text-navy-900 py-3 px-6 rounded-lg font-semibold transition-all duration-300 hover:shadow-xl hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gold-500"
-                    data-testid="button-submit-form"
-                  >
-                    {isSubmitting ? "Sending..." : "Send Message"}
-                  </Button>
-                  
-                  {isSuccess && (
-                    <div className="text-center p-4 bg-green-500/20 border border-green-500/30 rounded-lg">
-                      <i className="fas fa-check-circle text-green-400 text-xl mb-2"></i>
-                      <p className="text-green-400 font-medium">Message sent successfully! I'll get back to you soon.</p>
-                    </div>
-                  )}
-                </form>
-              </Form>
+                </div>
+                
+                <button
+                  type="submit"
+                  className="w-full bg-gold-500 hover:bg-gold-400 text-navy-900 py-3 px-6 rounded-lg font-semibold transition-all duration-300 hover:shadow-xl hover:scale-105"
+                  data-testid="button-submit-form"
+                >
+                  Send Message
+                </button>
+              </form>
             </div>
           </div>
         </div>

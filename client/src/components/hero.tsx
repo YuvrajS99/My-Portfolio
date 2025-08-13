@@ -1,4 +1,4 @@
-import { useScroll } from "@/hooks/use-scroll";
+import { useScroll } from "../hooks/use-scroll";
 
 export default function Hero() {
   const { scrollToSection } = useScroll();
