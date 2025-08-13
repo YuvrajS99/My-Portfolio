@@ -32,7 +32,7 @@ export default function About() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="animate-slide-in-left">
               <img 
-                src="@assets/image_1755079377287.jpg" 
+                src="/attached_assets/image_1755079377287.jpg" 
                 alt="Yuvraj Adinath Sanap - Professional Portrait" 
                 className="rounded-2xl shadow-2xl w-full max-w-md mx-auto object-cover aspect-[4/5]"
               />
