@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="refresh" content="0; url=./dist/public/index.html" />
+    <title>Redirecting to Portfolio...</title>
+    <style>
+      body { 
+        font-family: system-ui, sans-serif; 
+        text-align: center; 
+        padding: 2rem; 
+        background: linear-gradient(135deg, hsl(215, 100%, 8%) 0%, hsl(214, 55%, 19%) 100%);
+        color: white;
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .loader {
+        border: 4px solid rgba(212, 175, 55, 0.3);
+        border-radius: 50%;
+        border-top: 4px solid hsl(45, 87%, 52%);
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+        margin: 20px auto;
+      }
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Loading Portfolio...</h1>
+      <div class="loader"></div>
+      <p>If you're not redirected automatically, <a href="./dist/public/index.html" style="color: hsl(45, 87%, 52%);">click here</a></p>
+    </div>
+    <script>
+      // Fallback redirect after 2 seconds
+      setTimeout(() => {
+        window.location.href = './dist/public/index.html';
+      }, 2000);
+    </script>
+  </body>
+</html>

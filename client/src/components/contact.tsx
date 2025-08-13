@@ -52,22 +52,26 @@ export default function Contact() {
     setIsSubmitting(true);
     
     try {
-      // Simulate form submission
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      // For static deployment, redirect to email client
+      const subject = encodeURIComponent(`Portfolio Contact: Message from ${data.name}`);
+      const body = encodeURIComponent(`Name: ${data.name}\nEmail: ${data.email}\n\nMessage:\n${data.message}`);
+      const mailtoLink = `mailto:yuvrajsanap.sit.comp@gmail.com?subject=${subject}&body=${body}`;
+      
+      window.open(mailtoLink, '_blank');
       
       setIsSuccess(true);
       form.reset();
       
       toast({
-        title: "Message sent successfully!",
-        description: "Thank you for reaching out. I'll get back to you soon.",
+        title: "Opening email client...",
+        description: "Your message details have been prepared for sending.",
       });
       
       setTimeout(() => setIsSuccess(false), 5000);
     } catch (error) {
       toast({
-        title: "Error sending message",
-        description: "Please try again later or contact me directly via email.",
+        title: "Please contact directly",
+        description: "Send an email to yuvrajsanap.sit.comp@gmail.com",
         variant: "destructive",
       });
     } finally {
